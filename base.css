@@ -84,34 +84,43 @@
     background: var(--background-primary) !important;
   }
 
-  /* Main app wrapper - FORCE BACKGROUND */
-  body,
-  html,
-  #app-mount,
-  #app-mount > div,
-  #app-mount > div > div,
-  .app_de4237,
-  [class*="app_"] {
-    background: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
+  /* Force main background gradient */
+  body, html, #app-mount {
+    background: linear-gradient(180deg, rgba(23,0,5,1) 10%, rgba(0,0,0,1) 65%) !important;
+    background-color: #000 !important;
   }
 
-  /* Force on all major containers */
-  [class*="container_"],
-  [class*="content_"],
-  [class*="wrapper_"],
-  [class*="scroller_"],
-  [class*="layer_"],
-  [class*="layers_"] {
-    background-color: transparent !important;
-  }
-
-  /* Force specific Discord elements to be transparent */
+  /* Make Discord's default background transparent */
+  .bg_d4b6c5,
+  .app_a01fb1,
+  .appMount_a01fb1,
   div[class^="bg_"],
-  div[class*="_bg"],
-  div[class*="background"],
-  div[class*="Background"] {
+  div[class^="app_"],
+  .theme-dark,
+  .theme-light {
+    background: transparent !important;
     background-color: transparent !important;
-    background-image: none !important;
+  }
+
+  /* Chat background fix */
+  .chat_a7d72e,
+  .chatContent_a7d72e,
+  .container_a7d72e,
+  [class*="chat_"],
+  [class*="chatContent_"] {
+    background: transparent !important;
+  }
+
+  /* Sidebar/Channels background fix */
+  .sidebar_a4d4d9,
+  [class*="sidebar_"] {
+    background: rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* Server list background fix */
+  .wrapper_fea3ef,
+  [class*="wrapper_"][class*="guilds"] {
+    background: rgba(0, 0, 0, 0.8) !important;
   }
 
   /* Remove Discord's default dark overlays */
