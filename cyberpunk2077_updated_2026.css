@@ -10,7 +10,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 /* Import local base.css instead of remote for 2026 compatibility */
-@import url('./base.css');
+@import url('github.com/jocastaoff/theme-cyberpunk/blob/be5cf2945e2347e99ee63412b1d57bb6ea16ef1b/base.css');
 
 :root {
     /* Updated background variables for Discord 2026 */
