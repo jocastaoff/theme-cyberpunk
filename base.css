@@ -1,6 +1,8 @@
-:root {
-    --background-primary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%);
-    --background-secondary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%);
+  :root {
+    --background-primary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
+    --background-secondary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
+    --background-secondary-alt: rgba(23, 0, 5, 0.65) !important;
+    --background-tertiary: rgba(10, 0, 2, 0.8) !important;
     --font-primary: 'Rajdhani';
     --primary-text-color: lightgray;
     
@@ -74,6 +76,41 @@
    */
   ::-webkit-input-placeholder, body, button, input, select, textarea {
       font-family: var(--font-primary);
+  }
+
+  /* Force background on main Discord containers */
+  .base_a4d4d9,
+  [class*="base_"] {
+    background: var(--background-primary) !important;
+  }
+
+  /* Main app wrapper */
+  #app-mount,
+  #app-mount > div,
+  .app_de4237,
+  [class*="app_"] {
+    background: var(--background-primary) !important;
+  }
+
+  /* Remove Discord's default dark overlays */
+  .theme-dark,
+  .theme-light {
+    --background-primary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
+    --background-secondary: rgba(23, 0, 5, 0.75) !important;
+    --background-secondary-alt: rgba(23, 0, 5, 0.65) !important;
+    --background-tertiary: rgba(10, 0, 2, 0.8) !important;
+    --background-floating: rgba(23, 13, 22, 0.95) !important;
+    --background-mobile-primary: rgba(0, 0, 0, 0.9) !important;
+    --background-mobile-secondary: rgba(23, 0, 5, 0.75) !important;
+    --background-modifier-selected: rgba(255, 0, 60, 0.2) !important;
+    --background-modifier-hover: rgba(114, 234, 248, 0.1) !important;
+    --background-modifier-active: rgba(114, 234, 248, 0.15) !important;
+    --background-modifier-accent: rgba(255, 0, 60, 0.5) !important;
+    --bg-overlay-1: transparent !important;
+    --bg-overlay-2: transparent !important;
+    --bg-overlay-chat: transparent !important;
+    --bg-overlay-home: transparent !important;
+    --bg-overlay-app-frame: transparent !important;
   }
 
   /* ===============
@@ -359,6 +396,14 @@
     padding: 0 6px;
   }
 
+  /* Sidebar background */
+  .sidebar_a4d4d9,
+  .container_a4d4d9,
+  [class*="sidebar_"][class*="base"],
+  [class*="container_"][class*="sidebar"] {
+    background: var(--background-primary) !important;
+  }
+
   /* Category and hash name color */
   .content_f9f2ca .wrapper_a6d69a,
   .name_a6d69a,
@@ -461,10 +506,35 @@
     background: black;
   }
 
+  /* Main app background - Updated for 2026 */
+  .app_a7d72e,
+  .bg_a7d72e,
+  .layers_a23c69,
+  [class*="app_"][class*="content"],
+  [class*="bg_"][class*="app"],
+  [class*="layers_"] {
+    background: transparent !important;
+  }
+
   /* ===============
       MAIN CONTAINER WITH MESSAGES AND INPUT
       ===============
    */
+
+  /* Chat background and content area - Updated for 2026 */
+  .chat_a7d72e,
+  .content_a7d72e,
+  .chatContent_a7d72e,
+  [class*="chat_"][class*="content"],
+  [class*="chatContent_"] {
+    background: var(--background-primary) !important;
+  }
+
+  /* Main scroller/messages container */
+  .scroller_e2e187,
+  [class*="scroller_"][class*="messages"] {
+    background: transparent !important;
+  }
 
   /* Input message - Updated */
   .channelTextArea_a7d72e,
