@@ -1,143 +1,144 @@
 /**
- * CYBERPUNK 2077 - EDITION "REAL GLASS"
- * Force la transparence en utilisant la méthode de TranslucencePlus
+ * CYBERPUNK 2077 - HYBRID GLASS EDITION
+ * Moteur: TranslucencePlus | Skin: Cyberpunk 2077
  */
 
+/* 1. IMPORT DU MOTEUR TRANSLUCENCE (Gère la transparence technique) */
+@import url(https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css);
+
+/* 2. IMPORT DE LA POLICE CYBERPUNK */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* --- 1. CONFIGURATION CYBERPUNK --- */
-    --glass-blur: 8px;            /* Flou plus léger pour performance */
-    --opacity-sidebar: 0.6;       /* Opacité Sidebar (0 à 1) */
-    --opacity-chat: 0.3;          /* Opacité Chat (0 à 1) */
+    /* --- CONFIGURATION DU FOND (Moteur Translucence) --- */
+    /* Mets ici le lien de ton image de fond Cyberpunk */
+    --app-bg: url(https://images4.alphacoders.com/112/1123467.jpg);
     
-    /* Couleurs Cyberpunk */
-    --primary: 23, 13, 22;
+    --app-blur: 10px;           /* Flou de l'image de fond */
+    --app-margin: 0px;          /* Marge autour de l'app */
+    --app-radius: 0px;          /* 0px = Angles carrés (Style Cyberpunk) */
+    
+    /* --- COULEURS CYBERPUNK (Variables) --- */
     --red: 255, 0, 60;
     --blue: 114, 234, 248;
     --yellow: 243, 230, 0;
+    --green: 71, 213, 139;
 
-    /* Image de fond (OBLIGATOIRE pour voir la transparence) */
-    /* Tu peux remplacer ce lien par ton image Cyberpunk préférée */
-    --app-bg: url('https://images4.alphacoders.com/112/1123467.jpg'); 
+    --neon-red-color: rgb(var(--red));
+    --neon-blue-color: rgb(var(--blue));
+    --neon-yellow-color: rgb(var(--yellow));
+    --neon-green-color: rgb(var(--green));
 
-    /* --- 2. LE MOTEUR "TRANSLUCENCE" --- */
-    /* On force TOUTES les variables de couleur de fond à être transparentes */
-    --background-primary: transparent !important;
-    --background-secondary: transparent !important;
-    --background-secondary-alt: transparent !important;
-    --background-tertiary: transparent !important;
-    --background-accent: transparent !important;
-    --background-floating: rgba(0,0,0,0.8) !important;
+    /* --- REGLAGES DE TRANSPARENCE DES ZONES (Moteur Translucence) --- */
+    /* On met des couleurs sombres mais translucides (rgba) */
     
-    /* Variables Discord Modernes */
-    --bg-base-primary: transparent !important;
-    --bg-base-secondary: transparent !important;
-    --bg-base-tertiary: transparent !important;
-    --bg-overlay-1: transparent !important;
-    --bg-overlay-2: transparent !important;
-    --bg-overlay-3: transparent !important;
-    --bg-overlay-chat: transparent !important;
+    /* Sidebar (Salons à gauche) : Noir à 60% d'opacité */
+    --sidebar-color: rgba(0, 0, 0, 0.6);
     
-    --channeltextarea-background: rgba(0,0,0,0.6) !important;
+    /* Contenu principal (Chat) : Noir à 40% d'opacité */
+    --main-content-color: rgba(0, 0, 0, 0.4);
+    
+    /* Cartes et Popups */
+    --card-color: rgba(15, 8, 14, 0.85);
+    --card-radius: 0px; /* Carré */
+
+    /* Messages */
+    --message-color: rgba(0,0,0,0); /* Transparent par défaut */
+    --message-radius: 0px;
+    
+    /* Zone de texte (Input) */
+    --textarea-color: 0, 0, 0;
+    --textarea-alpha: 0.6;
+    --textarea-radius: 0px;
+    --textarea-text-color: #fff;
+
+    /* Police */
+    --font-primary: "Rajdhani", sans-serif;
+    --font-display: "Rajdhani", sans-serif;
 }
 
 /* ========================================================================
-   3. APPLICATION DU FOND D'ÉCRAN
+   ADAPTATION DU STYLE CYBERPUNK SUR LA BASE GLASS
    ======================================================================== */
 
-/* On applique l'image sur le corps de la page */
-body {
-    background: var(--app-bg) center/cover no-repeat fixed !important;
+/* 1. FORCER LES ANGLES CARRÉS (Esthétique Cyberpunk) */
+* {
+    border-radius: 0px !important;
 }
 
-/* On rend le "conteneur d'application" transparent */
-#app-mount {
-    background-color: transparent !important; 
+/* 2. SIDEBAR (Gauche) - Ajout de la bordure rouge */
+#app-mount [class*="sidebar_"] {
+    border-right: 1px solid var(--neon-red-color);
 }
 
-/* ========================================================================
-   4. DESTRUCTION DES FONDS NOIRS (La partie critique)
-   ======================================================================== */
-
-/* C'est ICI que ça se joue. On vise les conteneurs qui bloquent la vue. */
-div[class*="app_"],
-div[class*="bg_"],
-div[class*="layer_"],  /* Souvent le coupable */
-div[class*="layers_"],
-div[class*="scroller_"],
-div[class*="standardSidebarView_"], /* Paramètres */
-div[class*="chat_"], 
-div[class*="content_"], 
-div[class*="chatContent_"],
-div[class*="container_"],
-div[class*="sidebar_"] {
-    background-color: transparent !important;
+/* 3. LISTE DES MEMBRES (Droite) - Ajout de la bordure rouge */
+#app-mount [class*="container_"][class*="members"] {
+    background: transparent !important; /* Laisse Translucence gérer le fond */
+    border-left: 1px solid var(--neon-red-color);
 }
 
-/* ========================================================================
-   5. RECONSTRUCTION DU STYLE CYBERPUNK (Avec effet vitré)
-   ======================================================================== */
-
-/* Sidebar Gauche (Salons) */
-div[class*="sidebar_"] {
-    background-color: rgba(0, 0, 0, var(--opacity-sidebar)) !important;
-    backdrop-filter: blur(var(--glass-blur));
-    border-right: 1px solid rgb(var(--red));
+/* 4. BARRE DU HAUT (Header) */
+#app-mount [class*="title_"][class*="themed_"] {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-bottom: 2px solid var(--neon-red-color);
 }
 
-/* Liste des serveurs (Tout à gauche) */
-nav[class*="wrapper_"][class*="guilds"] {
-    background-color: rgba(0, 0, 0, 0.7) !important;
-    backdrop-filter: blur(var(--glass-blur));
-}
-
-/* Zone de Chat (Le milieu) */
-div[class*="chatContent_"] {
-    background-color: rgba(0, 0, 0, var(--opacity-chat)) !important;
-    /* Pas de blur ici pour garder le chat net, ou ajoute backdrop-filter si tu veux */
-}
-
-/* Liste des membres (Droite) */
-div[class*="container_"][class*="members"] {
-    background-color: rgba(0, 0, 0, var(--opacity-sidebar)) !important;
-    border-left: 1px solid rgb(var(--red));
-    backdrop-filter: blur(var(--glass-blur));
-}
-
-/* Barre du haut (Header) */
-div[class*="title_"][class*="themed_"] {
+/* 5. ZONE DE CHAT & INPUT */
+/* Barre de saisie */
+#app-mount [class*="scrollableContainer_"] {
+    border: 1px solid var(--neon-blue-color);
     background: rgba(0, 0, 0, 0.7) !important;
-    border-bottom: 2px solid rgb(var(--red));
 }
 
-/* Panneau utilisateur (Bas gauche) */
-section[class*="panels_"] {
-    background-color: rgba(0, 0, 0, 0.85) !important;
-    border-top: 1px solid rgb(var(--red));
+/* 6. CATÉGORIES DE SALONS */
+[class*="mainContent_"] {
+    color: var(--neon-red-color);
+    border-bottom: 1px solid var(--neon-red-color);
+}
+[class*="name_"] {
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-/* Zone de saisie (Input) */
-div[class*="scrollableContainer_"] {
-    background-color: rgba(20, 10, 20, 0.9) !important; /* Assez opaque pour lire */
-    border: 1px solid rgb(var(--blue));
-    border-radius: 0px;
+/* 7. SALONS SÉLECTIONNÉS */
+[class*="modeSelected_"] [class*="link_"] {
+    background: rgba(255, 0, 60, 0.3) !important; /* Rouge translucide */
+    border-left: 2px solid var(--neon-yellow-color);
+}
+[class*="modeSelected_"] [class*="name_"] {
+    color: var(--neon-yellow-color) !important;
+}
+
+/* 8. BOUTONS ET INTERACTIONS */
+button {
+    font-family: "Rajdhani" !important;
+    text-transform: uppercase;
+}
+
+/* Scrollbars en couleur néon */
+::-webkit-scrollbar-thumb {
+    background: var(--neon-red-color) !important;
+}
+
+/* 9. PANNEAU UTILISATEUR (Bas gauche) */
+#app-mount [class*="panels_"] {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-top: 1px solid var(--neon-red-color);
 }
 
 /* ========================================================================
-   6. DÉTAILS ESTHÉTIQUES
+   CORRECTIONS SPÉCIFIQUES POUR TRANSLUCENCE
    ======================================================================== */
 
-/* Police */
-* { font-family: 'Rajdhani', sans-serif !important; }
+/* Enlève l'icône Home de Translucence si elle gêne */
+.homeIcon-r0w4ny { display: none; }
 
-/* Scrollbars */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: transparent !important; }
-::-webkit-scrollbar-thumb { background: rgb(var(--red)) !important; border-radius: 0; }
+/* Force la transparence sur les conteneurs que Translucence pourrait rater */
+.app_a7d72e, .bg_a7d72e {
+    background: transparent !important;
+}
 
-/* Dates / Séparateurs */
-div[class*="divider_"] { 
-    background: transparent !important; 
-    border-top: 1px solid rgb(var(--red)); 
+/* Ajustement des couleurs de texte pour le contraste */
+[class*="username_"] {
+    text-shadow: 1px 1px 2px black;
 }
