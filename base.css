@@ -63,7 +63,8 @@
 
 /* 1. Apply the Cyberpunk Gradient to the very root */
 html, body {
-    background: linear-gradient(180deg, rgba(23,0,5,1) 10%, rgba(0,0,0,1) 65%) !important;
+    /* Much more visible gradient: Deep Neon Red to Black */
+    background: linear-gradient(180deg, #450a1f 0%, #1a050d 30%, #000000 100%) !important;
     background-attachment: fixed !important;
     background-color: #000 !important;
 }
