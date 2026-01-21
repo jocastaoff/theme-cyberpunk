@@ -1,0 +1,128 @@
+/**
+ * @name Cyberpunk 2077 (2026 Edition)
+ * @author Patryk Bielanin | bielak (Updated for Discord 2026 by AI)
+ * @description Cyberpunk 2077 UI styled theme for Vencord - Fully updated for Discord 2026
+ * @version 3.0.0
+ * @source https://github.com/PatrykBielanin/discord-cyberpunk2077-theme
+ * @website https://github.com/PatrykBielanin/discord-cyberpunk2077-theme
+ * @donate https://www.paypal.com/donate/?hosted_button_id=PGVKB863SXYUQ
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+/* Import local base.css instead of remote for 2026 compatibility */
+@import url('./base.css');
+
+:root {
+    /* Updated background variables for Discord 2026 */
+    --bg-overlay-1: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%);
+    --bg-overlay-2: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%);
+    --background-primary: rgba(0, 0, 0, 0.9);
+    --background-secondary: rgba(23, 0, 5, 0.75);
+    --background-secondary-alt: rgba(23, 0, 5, 0.65);
+    --background-tertiary: rgba(10, 0, 2, 0.8);
+    --background-accent: rgb(255, 0, 60);
+    --background-floating: rgba(23, 13, 22, 0.95);
+    --background-nested-floating: rgba(23, 13, 22, 0.9);
+    --background-mobile-primary: rgba(0, 0, 0, 0.9);
+    --background-mobile-secondary: rgba(23, 0, 5, 0.75);
+    
+    /* Font */
+    --font-primary: 'Rajdhani', 'gg sans', 'Noto Sans', sans-serif;
+    --font-display: 'Rajdhani', 'gg sans', 'Noto Sans', sans-serif;
+    --font-headline: 'Rajdhani', 'gg sans', sans-serif;
+    --font-code: 'Fira Code', 'Consolas', monospace;
+    
+    /* Text colors (updated for 2026) */
+    --text-normal: lightgray;
+    --text-muted: rgba(211, 211, 211, 0.6);
+    --text-faint: rgba(211, 211, 211, 0.3);
+    --text-link: rgb(114, 234, 248);
+    --text-link-low-saturation: rgb(100, 200, 220);
+    --text-positive: rgb(71, 213, 139);
+    --text-warning: rgb(243, 230, 0);
+    --text-danger: rgb(255, 0, 60);
+    --text-brand: rgb(114, 234, 248);
+    
+    /* Color palette (RGB values for Discord 2026) */
+    --primary-600: rgb(23, 13, 22);
+    --primary-630: rgb(23, 13, 22);
+    --primary-645: rgb(18, 10, 17);
+    --primary-660: rgb(15, 8, 14);
+    
+    /* Brand colors */
+    --brand-experiment: rgb(114, 234, 248);
+    --brand-experiment-100: rgba(114, 234, 248, 0.1);
+    --brand-experiment-200: rgba(114, 234, 248, 0.2);
+    --brand-experiment-230: rgba(114, 234, 248, 0.23);
+    --brand-experiment-260: rgba(114, 234, 248, 0.26);
+    --brand-experiment-300: rgba(114, 234, 248, 0.3);
+    --brand-experiment-330: rgba(114, 234, 248, 0.33);
+    --brand-experiment-360: rgba(114, 234, 248, 0.36);
+    --brand-experiment-400: rgba(114, 234, 248, 0.4);
+    --brand-experiment-430: rgba(114, 234, 248, 0.43);
+    --brand-experiment-460: rgba(114, 234, 248, 0.46);
+    --brand-experiment-500: rgb(114, 234, 248);
+    --brand-experiment-530: rgb(100, 220, 235);
+    --brand-experiment-560: rgb(90, 210, 225);
+    --brand-experiment-600: rgb(80, 200, 215);
+    --brand-experiment-630: rgb(70, 190, 205);
+    --brand-experiment-660: rgb(60, 180, 195);
+    --brand-experiment-700: rgb(50, 170, 185);
+    --brand-experiment-730: rgb(40, 160, 175);
+    --brand-experiment-760: rgb(30, 150, 165);
+    --brand-experiment-800: rgb(20, 140, 155);
+    --brand-experiment-830: rgb(10, 130, 145);
+    --brand-experiment-860: rgb(0, 120, 135);
+    --brand-experiment-900: rgb(0, 110, 125);
+    
+    /* Status colors (2026 update) */
+    --status-danger: rgb(255, 0, 60);
+    --status-danger-background: rgba(255, 0, 60, 0.1);
+    --status-positive: rgb(71, 213, 139);
+    --status-positive-background: rgba(71, 213, 139, 0.1);
+    --status-warning: rgb(243, 230, 0);
+    --status-warning-background: rgba(243, 230, 0, 0.1);
+    
+    /* Custom theme variables */
+    --neon-red-color: rgb(255, 0, 60);
+    --neon-blue-color: rgb(114, 234, 248);
+    --neon-yellow-color: rgb(243, 230, 0);
+    --neon-green-color: rgb(71, 213, 139);
+    --dark-green-color: rgb(56, 171, 111);
+    
+    /* Avatar settings */
+    --avatar-radius: 5px;
+    --avatar-border-radius: 5px;
+    --avatar-size: 32px;
+    --avatar-border: 1px solid var(--neon-red-color);
+    
+    /* Button and input radius (2026 Discord uses these) */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-round: 50%;
+}
+
+/* Avatar customization for 2026 structure */
+.avatar_dd1e05,
+.wrapper_dd1e05,
+[class*="avatar_"],
+[class*="wrapper_"][class*="avatar"] {
+    border-radius: var(--avatar-radius) !important;
+    border: var(--avatar-border) !important;
+}
+
+/* User profile avatars */
+.avatarStack_f7963b .avatar_dd1e05,
+.userInfo_ae58f0 .avatar_dd1e05 {
+    border-radius: var(--avatar-radius) !important;
+}
+
+/* Apply custom font to all text elements */
+body,
+.theme-dark,
+.theme-light {
+    font-family: var(--font-primary) !important;
+}
