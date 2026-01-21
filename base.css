@@ -84,24 +84,46 @@
     background: var(--background-primary) !important;
   }
 
-  /* Main app wrapper */
+  /* Main app wrapper - FORCE BACKGROUND */
+  body,
+  html,
   #app-mount,
   #app-mount > div,
+  #app-mount > div > div,
   .app_de4237,
   [class*="app_"] {
-    background: var(--background-primary) !important;
+    background: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
+  }
+
+  /* Force on all major containers */
+  [class*="container_"],
+  [class*="content_"],
+  [class*="wrapper_"],
+  [class*="scroller_"],
+  [class*="layer_"],
+  [class*="layers_"] {
+    background-color: transparent !important;
+  }
+
+  /* Force specific Discord elements to be transparent */
+  div[class^="bg_"],
+  div[class*="_bg"],
+  div[class*="background"],
+  div[class*="Background"] {
+    background-color: transparent !important;
+    background-image: none !important;
   }
 
   /* Remove Discord's default dark overlays */
   .theme-dark,
   .theme-light {
-    --background-primary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
-    --background-secondary: rgba(23, 0, 5, 0.75) !important;
-    --background-secondary-alt: rgba(23, 0, 5, 0.65) !important;
-    --background-tertiary: rgba(10, 0, 2, 0.8) !important;
+    --background-primary: transparent !important;
+    --background-secondary: transparent !important;
+    --background-secondary-alt: transparent !important;
+    --background-tertiary: transparent !important;
     --background-floating: rgba(23, 13, 22, 0.95) !important;
-    --background-mobile-primary: rgba(0, 0, 0, 0.9) !important;
-    --background-mobile-secondary: rgba(23, 0, 5, 0.75) !important;
+    --background-mobile-primary: transparent !important;
+    --background-mobile-secondary: transparent !important;
     --background-modifier-selected: rgba(255, 0, 60, 0.2) !important;
     --background-modifier-hover: rgba(114, 234, 248, 0.1) !important;
     --background-modifier-active: rgba(114, 234, 248, 0.15) !important;
@@ -111,6 +133,10 @@
     --bg-overlay-chat: transparent !important;
     --bg-overlay-home: transparent !important;
     --bg-overlay-app-frame: transparent !important;
+    --bg-backdrop: transparent !important;
+    --bg-base-primary: transparent !important;
+    --bg-base-secondary: transparent !important;
+    --bg-base-tertiary: transparent !important;
   }
 
   /* ===============
