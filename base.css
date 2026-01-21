@@ -1,11 +1,10 @@
-  :root {
-    --background-primary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
-    --background-secondary: linear-gradient(180deg, rgba(23,0,5,.75) 10%, rgba(0,0,0,1) 65%) !important;
-    --background-secondary-alt: rgba(23, 0, 5, 0.65) !important;
-    --background-tertiary: rgba(10, 0, 2, 0.8) !important;
-    --font-primary: 'Rajdhani';
-    --primary-text-color: lightgray;
-    
+/*
+   CYBERPUNK 2077 THEME - BASE CSS (2026 UPDATE)
+   Redesigned background handling for modern Discord architecture
+*/
+
+:root {
+    /* Core Theme Colors */
     --primary: 23, 13, 22;
     --red: 255, 0, 60;
     --blue: 114, 234, 248;
@@ -13,10 +12,7 @@
     --green: 71, 213, 139;
     --dark-green: 56, 171, 111;
 
-    --primary-color: rgba(var(--primary), 0.9);
-    --dark-primary-color: rgba(var(--primary), 1);
-    --light-primary-color: rgba(var(--primary), 0.6);
-
+    /* RGB Helper Variables */
     --neon-red-color: rgba(var(--red), 1);
     --neon-blue-color: rgba(var(--blue), 1);
     --neon-yellow-color: rgba(var(--yellow), 1);
@@ -26,127 +22,112 @@
     --light-neon-blue-color: rgba(var(--blue), 0.65);
     --light-neon-yellow-color: rgba(var(--yellow), 0.5);
     --light-neon-green-color: rgba(var(--green), 1);
-
+    
     --dark-neon-green-color: rgb(var(--dark-green));
 
-    /* Variables for customization tool */
-    --avatar-circle: 0;
-    --avatar-rounded: 5px;
-    --avatar-border: 1px solid var(--neon-red-color);
+    --primary-color: rgba(var(--primary), 0.9);
+    --dark-primary-color: rgba(var(--primary), 1);
+    --light-primary-color: rgba(var(--primary), 0.6);
 
-    /* Discord variables - Updated for 2026 */
-    --brand-experiment: var(--neon-red-color);
-    --brand-experiment-500: rgba(var(--red), 0.65);
-    --brand-experiment-560: rgba(var(--red), 0.70);
-    --brand-experiment-600: rgba(var(--red), 0.80);
-    --modal-background: var(--dark-primary-color);
-    --modal-footer-background: var(--light-primary-color);
-    --header-primary: var(--neon-blue-color);
-    --header-secondary: var(--light-neon-blue-color);
-    --search-popout-option-fade: var(--primary-color);
-    --background-floating: var(--primary-color);
-    --background-modifier-accent: var(--light-neon-red-color);
-    --interactive-hover: var(--light-neon-blue-color);
-    --info-warning-foreground: var(--neon-yellow-color);
-    --background-mentioned: rgba(var(--yellow), 0.1);
-    --interactive-active: var(--neon-yellow-color);
-    --search-popout-date-picker-hint-value-background-hover: rgba(var(--red), 0.8);
-    --button-secondary-background: rgba(var(--blue), 0.75);
-    --background-gradient-high: var(--background-secondary);
-    --background-gradient-chat: black;
-    --background-gradient-app-frame: var(--dark-primary-color);
+    --font-primary: 'Rajdhani', sans-serif;
+    --primary-text-color: lightgray;
 
-    /* Discord custom variables */
-    --custom-theme-text-color: var(--primary-text-color);
-    --custom-theme-base-color-hsl: 200 30% 20%;
-
-    --custom-theme-base-ammount: 0% !important;
-    --custom-theme-text-color-amount: 50%;
-
-    --custom-theme-border-color: var(--neon-blue-color);
-    --custom-theme-border-color-amount: 50%;
-
-    --custom-theme-base-color: var(--dark-primary-color);
-    --custom-theme-base-color-amount: 100%;
-  }
-
-  /* ===============
-      CUSTOM FONT FROM GOOGLE FONTS
-      ===============
-   */
-  ::-webkit-input-placeholder, body, button, input, select, textarea {
-      font-family: var(--font-primary);
-  }
-
-  /* Force background on main Discord containers */
-  .base_a4d4d9,
-  [class*="base_"] {
-    background: var(--background-primary) !important;
-  }
-
-  /* Force main background gradient */
-  body, html, #app-mount {
-    background: linear-gradient(180deg, rgba(23,0,5,1) 10%, rgba(0,0,0,1) 65%) !important;
-    background-color: #000 !important;
-  }
-
-  /* Make Discord's default background transparent */
-  .bg_d4b6c5,
-  .app_a01fb1,
-  .appMount_a01fb1,
-  div[class^="bg_"],
-  div[class^="app_"],
-  .theme-dark,
-  .theme-light {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* Chat background fix */
-  .chat_a7d72e,
-  .chatContent_a7d72e,
-  .container_a7d72e,
-  [class*="chat_"],
-  [class*="chatContent_"] {
-    background: transparent !important;
-  }
-
-  /* Sidebar/Channels background fix */
-  .sidebar_a4d4d9,
-  [class*="sidebar_"] {
-    background: rgba(0, 0, 0, 0.4) !important;
-  }
-
-  /* Server list background fix */
-  .wrapper_fea3ef,
-  [class*="wrapper_"][class*="guilds"] {
-    background: rgba(0, 0, 0, 0.8) !important;
-  }
-
-  /* Remove Discord's default dark overlays */
-  .theme-dark,
-  .theme-light {
+    /* GLOBAL BACKGROUND OVERRIDE - THE NUCLEAR OPTION */
     --background-primary: transparent !important;
     --background-secondary: transparent !important;
     --background-secondary-alt: transparent !important;
     --background-tertiary: transparent !important;
+    --background-accent: transparent !important;
     --background-floating: rgba(23, 13, 22, 0.95) !important;
-    --background-mobile-primary: transparent !important;
-    --background-mobile-secondary: transparent !important;
-    --background-modifier-selected: rgba(255, 0, 60, 0.2) !important;
-    --background-modifier-hover: rgba(114, 234, 248, 0.1) !important;
-    --background-modifier-active: rgba(114, 234, 248, 0.15) !important;
-    --background-modifier-accent: rgba(255, 0, 60, 0.5) !important;
+    
+    /* New Discord 2026 Variables Override */
     --bg-overlay-1: transparent !important;
     --bg-overlay-2: transparent !important;
+    --bg-overlay-3: transparent !important;
     --bg-overlay-chat: transparent !important;
-    --bg-overlay-home: transparent !important;
     --bg-overlay-app-frame: transparent !important;
-    --bg-backdrop: transparent !important;
     --bg-base-primary: transparent !important;
     --bg-base-secondary: transparent !important;
     --bg-base-tertiary: transparent !important;
-  }
+    --bg-backdrop: transparent !important;
+    
+    /* Scrollbars */
+    --scrollbar-auto-thumb: var(--neon-red-color);
+    --scrollbar-auto-track: transparent;
+    --scrollbar-thin-thumb: var(--neon-red-color);
+}
+
+/* ========================================================================
+   CORE BACKGROUND FIXES
+   ======================================================================== */
+
+/* 1. Apply the Cyberpunk Gradient to the very root */
+html, body {
+    background: linear-gradient(180deg, rgba(23,0,5,1) 10%, rgba(0,0,0,1) 65%) !important;
+    background-attachment: fixed !important;
+    background-color: #000 !important;
+}
+
+/* 2. Make the main React mount point transparent */
+#app-mount {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* 3. The "Nuclear" Transparent Fix - Targets all potential background layers */
+/* App containers, Layers, Backgrounds, Chat, Sidebar */
+div[class*="app_"],
+div[class*="app-"],
+div[class^="bg_"],
+div[class*="bg-"],
+div[class*="layer_"],
+div[class*="layers_"],
+div[class*="chat_"],
+div[class*="content_"],
+div[class*="chatContent_"],
+div[class*="container_"],
+div[class*="sidebar_"],
+div[class*="scroller_"],
+div[class*="wrapper_"],
+section[class*="panels_"],
+main[class*="chatContent_"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* 4. Exceptions - Elements that actually NEED a background (semi-transparent) */
+
+/* Sidebar / Server List - Darker for readability */
+[class*="sidebar_"], 
+nav[class*="wrapper_"][class*="guilds"] {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Message Input Area */
+[class*="channelTextArea_"],
+[class*="scrollableContainer_"] {
+    background-color: rgba(23, 13, 22, 0.9) !important;
+}
+
+/* Popups & Modals - Must have background */
+[class*="modal_"],
+[class*="root_"][class*="small"], 
+[class*="root_"][class*="medium"],
+[class*="popout_"],
+[class*="menu_"] {
+    background-color: var(--dark-primary-color) !important;
+}
+
+/* Embeds & Code Blocks */
+[class*="embedWrapper_"],
+code {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ========================================================================
+   END CORE FIXES
+   ======================================================================== */
 
   /* ===============
       TOP BAR WITH CHANNEL INFO AND ICONS
